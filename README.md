@@ -1,0 +1,90 @@
+# BillSplitterMDS
+
+A Python package to help groups split trip bills fairly among participants.
+
+## Summary
+
+When a group of people travel together, different people often pay for different expenses throughout the trip. At the end, it can be complicated to figure out how much each person actually owes and how money should be transferred to settle all debts fairly. **BillSplitterMDS** simplifies this process by reading expense data from a CSV file and calculating the optimal transfers needed to balance everyone's contributions.
+
+## Installation
+
+```bash
+pip install billsplittermds
+```
+
+## Functions
+
+The package provides four main functions:
+
+- **`load_validate_data(csv_path)`**: Reads a CSV file containing trip expense data and validates that tax and tip percentages are within reasonable ranges. Returns a validated pandas DataFrame.
+
+- **`split_by_item(valid_df)`**: Calculates how much each person should pay based on the items they shared. Computes individual costs by dividing item prices (with tax and tip) among sharers, then aggregates totals per person.
+
+- **`individual_total_payments(valid_df)`**: Calculates the total amount each person actually paid during the trip by summing up all bills paid by each person.
+
+- **`amount_to_transfer(should_pay_df, actually_paid_df)`**: Determines the money transfers needed to settle all debts. Takes the outputs of `split_by_item()` and `individual_total_payments()` to compute who owes money to whom.
+
+## Input CSV Format
+
+The CSV file should have the following columns:
+
+| Column | Description | Example |
+|--------|-------------|---------|
+| `payer` | Name of person who paid | Amy |
+| `item_name` | Description of expense | Pasta |
+| `item_price` | Price before tax/tip | 18 |
+| `shared_by` | Names separated by semicolons | Amy;Ben |
+| `tax_pct` | Tax as decimal | 0.05 |
+| `tip_pct` | Tip as decimal | 0.12 |
+
+Example CSV:
+```
+payer,item_name,item_price,shared_by,tax_pct,tip_pct
+Amy,Pasta,18,Amy,0.05,0.12
+Sam,Taxi,33,Amy;Ben;Sam;Joe,0.05,0.00
+Ben,double-room,230,Amy;Ben,0.12,0.04
+```
+
+## Usage
+
+```python
+from billsplittermds import (
+    load_validate_data,
+    split_by_item,
+    individual_total_payments,
+    amount_to_transfer
+)
+
+# Load and validate the expense data
+df = load_validate_data("trip_expenses.csv")
+
+# Calculate what each person should pay
+should_pay = split_by_item(df)
+
+# Calculate what each person actually paid
+actually_paid = individual_total_payments(df)
+
+# Get the transfers needed to settle up
+transfers = amount_to_transfer(should_pay, actually_paid)
+print(transfers)
+```
+
+## Python Ecosystem
+
+There are several expense-splitting apps and packages available:
+
+- [Splitwise](https://www.splitwise.com/) - A popular mobile/web app for splitting bills (not a Python package)
+- [split-bill](https://pypi.org/project/split-bill/) - A simple Python package for equal bill splitting
+
+**BillSplitterMDS** differs from these by focusing specifically on trip expenses where items can be shared by different subsets of people, with configurable tax and tip percentages per item.
+
+## Contributors
+
+- Quan Hoang
+- Jessie Liang
+- Norton Yu
+- Omar Ramos
+
+## License
+
+MIT License

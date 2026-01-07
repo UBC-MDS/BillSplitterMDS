@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "billsplittermds"
+version = "0.1.0"
+description = "A Python package to help groups split trip bills fairly among participants."
+authors = [
+    { name = "Quan Hoang" },
+    { name = "Jessie Liang" },
+    { name = "Norton Yu" },
+    { name = "Omar Ramos" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = ["bill", "split", "expense", "trip", "shared", "payment"]
+dependencies = [
+    "pandas>=1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/quandothoang/BillSplitterMDS"
+Repository = "https://github.com/quandothoang/BillSplitterMDS"
+"Bug Tracker" = "https://github.com/quandothoang/BillSplitterMDS/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/billsplittermds"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

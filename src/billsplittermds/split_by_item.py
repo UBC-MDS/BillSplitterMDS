@@ -28,11 +28,11 @@ def split_by_item(valid_df):
     >>> valid_df
         payer   item_name  item_price  shared_by  tax_pct  tip_pct
     0   Leo     candy      10.0        Leo        0.12     0.15
-    1   Leo     taxi       25.0        Leo, Ana   0.07     0.0
+    1   Leo     taxi       25.0        Leo;Ana    0.07     0.0
     2   Ana     lunch      20.0        Ana        0.12     0.15
 
     >>> split_by_item(valid_df)
-        individual   should_pay
+        name         should_pay
     0   Leo          26.255
     1   Ana          39.135
     

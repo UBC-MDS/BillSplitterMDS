@@ -7,17 +7,19 @@ def individual_total_payments(valid_df):
     """
     Calculate the net amount to pay per item and return a dataframe with the total payment amount per person.
 
-    First, this function takes in valid payments dataframe and derives a new column 'item_paymant' which is the total cost of each item including tax and tip. Then, it groups the datafram by the person who originally paid for the item and sums up the cost.
+    First, this function takes in valid payments dataframe and derives a new column 'item_paymant' which is the total cost of each item including tax and tip. 
+    Then, it groups the datafram by the person who originally paid for the item and sums up the cost.
 
     Parameters
     ----------
     valid_df : pandas.DataFrame
-        A dataframe containing valid payments with columns 'payer', 'item_price', 'tax_pct', and 'tip_pct'.
+        A dataframe containing validated data read from the input CSV file.
+        Typically the output of load_validate_data() function.
 
     Returns
     -------
     actually_paid_df : pandas.DataFrame
-        Dataframe with columns 'payer' and 'actual_payment'.
+        Dataframe with columns 'payer' and 'actually_paid'.
 
     Examples
     --------
@@ -28,7 +30,7 @@ def individual_total_payments(valid_df):
     2   Ana     20.0        0.12     0.15
 
     >>> individual_total_payments(valid_df)
-        payer   actual_payment
+        name   actually_paid
     0   Leo     39.45
     1   Ana     25.40
 

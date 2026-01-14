@@ -34,10 +34,8 @@ class TestIndividualTotalPayments:
     
     def test_input_type_validation(self):
         """Test that function raises TypeError for invalid input type."""
-        with pytest.raises(TypeError) as exec_info:
+        with pytest.raises(TypeError):
             individual_total_payments("not a dataframe")
-        #assert True
-        assert exec_info.type == TypeError
 
     def test_simple_single_items(self, simple_df):
         """Test calculation when each person paid for one item."""

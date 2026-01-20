@@ -1,0 +1,17 @@
+# Ruff configuration
+line-length = 100
+target-version = "py39"
+
+[lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+
+[lint.per-file-ignores]
+"tests/*" = ["F401"]  # unused imports in tests are OK

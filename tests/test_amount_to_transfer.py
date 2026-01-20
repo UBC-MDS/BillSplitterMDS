@@ -74,7 +74,7 @@ class TestAmountToTransfer:
         with pytest.raises(ValueError) as exc_info:
             amount_to_transfer(should_pay, actually_paid)
         assert "should_pay_df must have columns" in str(exc_info.value)
-        assert exc_info.type == ValueError
+        assert exc_info.type is ValueError
 
     def test_missing_column_actually_paid_raises_value_error(self):
         """Test that missing column in actually_paid_df raises ValueError."""
@@ -84,7 +84,7 @@ class TestAmountToTransfer:
         with pytest.raises(ValueError) as exc_info:
             amount_to_transfer(should_pay, actually_paid)
         assert "actually_paid_df must have columns" in str(exc_info.value)
-        assert exc_info.type == ValueError
+        assert exc_info.type is ValueError
 
     def test_output_columns(self, simple_transfer_dfs):
         """Test that output has correct column names."""

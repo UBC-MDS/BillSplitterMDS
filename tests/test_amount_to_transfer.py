@@ -90,5 +90,5 @@ class TestAmountToTransfer:
         """Test that output has correct column names."""
         should_pay, actually_paid = simple_transfer_dfs
         result = amount_to_transfer(should_pay, actually_paid)
-        
+                
         assert set(result.columns) == {'sender', 'receiver', 'amount'}

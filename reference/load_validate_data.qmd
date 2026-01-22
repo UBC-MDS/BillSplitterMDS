@@ -1,0 +1,41 @@
+# load_validate_data { #billsplittermds.load_validate_data }
+
+`load_validate_data`
+
+Module for loading and validating bill data from CSV files.
+
+## Functions
+
+| Name | Description |
+| --- | --- |
+| [load_validate_data](#billsplittermds.load_validate_data.load_validate_data) | Read in a csv dataset through its path and validate its values |
+
+### load_validate_data { #billsplittermds.load_validate_data.load_validate_data }
+
+```python
+load_validate_data.load_validate_data(csv_path)
+```
+
+Read in a csv dataset through its path and validate its values
+
+#### Parameters {.doc-section .doc-section-parameters}
+
+| Name     | Type   | Description                                         | Default    |
+|----------|--------|-----------------------------------------------------|------------|
+| csv_path | str    | The string of path from which we read the raw data. | _required_ |
+
+#### Returns {.doc-section .doc-section-returns}
+
+| Name     | Type             | Description                                               |
+|----------|------------------|-----------------------------------------------------------|
+| valid_df | pandas.DataFrame | Dataframe that is read and validated from the given path. |
+
+#### Examples {.doc-section .doc-section-examples}
+
+```python
+>>> load_validate_data("../../data/raw.csv")
+    payer   item_name        item_price  shared_by     tax_pct  tip_pct
+0   Amy      pasta           10.0        Amy           0.12     0.15
+1   Sam      taxi            25.0        Amy;Sam;Ben   0.07     0.0
+2   Ben      double-room     20.0        Amy;Ben       0.12     0.15
+```

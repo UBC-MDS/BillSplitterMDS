@@ -1,0 +1,12 @@
+# Function reference {.doc .doc-index}
+
+## Bill Splitter Functions
+
+A package of functions to split bills and manage transfers.
+
+| | |
+| --- | --- |
+| [load_validate_data](load_validate_data.qmd#billsplittermds.load_validate_data) | Module for loading and validating bill data from CSV files. |
+| [split_by_item](split_by_item.qmd#billsplittermds.split_by_item) | Module for calculating how much each person should pay. |
+| [individual_total_payments](individual_total_payments.qmd#billsplittermds.individual_total_payments) | Module for calculating how much each person actually paid. |
+| [amount_to_transfer](amount_to_transfer.qmd#billsplittermds.amount_to_transfer) | Module for calculating money transfers to settle debts. |

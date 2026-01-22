@@ -1,0 +1,12 @@
+website:
+  sidebar:
+  - contents:
+    - reference/index.qmd
+    - contents:
+      - reference/load_validate_data.qmd
+      - reference/split_by_item.qmd
+      - reference/individual_total_payments.qmd
+      - reference/amount_to_transfer.qmd
+      section: Bill Splitter Functions
+    id: reference
+  - id: dummy-sidebar

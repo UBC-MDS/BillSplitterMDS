@@ -1,0 +1,65 @@
+# amount_to_transfer { #billsplittermds.amount_to_transfer }
+
+`amount_to_transfer`
+
+Module for calculating money transfers to settle debts.
+
+## Functions
+
+| Name | Description |
+| --- | --- |
+| [amount_to_transfer](#billsplittermds.amount_to_transfer.amount_to_transfer) | Compute money transfers required to settle individual balances. |
+
+### amount_to_transfer { #billsplittermds.amount_to_transfer.amount_to_transfer }
+
+```python
+amount_to_transfer.amount_to_transfer(should_pay_df, actually_paid_df)
+```
+
+Compute money transfers required to settle individual balances.
+
+This function takes the outputs of 'split_by_item' and 'individual_total_payments' functions and determines how much money should be transferred between individuals, so that each person's final spending equals the amount they should have paid.
+
+#### Parameters {.doc-section .doc-section-parameters}
+
+| Name             | Type             | Description                                                                                                                 | Default    |
+|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------|------------|
+| should_pay_df    | pandas.DataFrame | Dataframe containing the amount each individual should pay according to splitting. Typically the output of 'split_by_item'. | _required_ |
+| actually_paid_df | pandas.DataFrame | Dataframe containing the amount each individual actually paid. Typically the output of 'individual_total_payments'.         | _required_ |
+
+#### Returns {.doc-section .doc-section-returns}
+
+| Name      | Type             | Description                                                                                                                                                                                                                                |
+|-----------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| result_df | pandas.DataFrame | A dataframe describing the required transfers with the following columns:  - 'sender' : name of the person who should send money - 'receiver' : name of the person who should receive money - 'amount' : amount of money to be transferred |
+
+#### Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                            |
+|--------|------------|--------------------------------------------------------|
+|        | ValueError | If required columns are missing from input dataframes. |
+
+#### Examples {.doc-section .doc-section-examples}
+
+```python
+>>> should_pay_df
+    name   should_pay
+0   Leo     30.0
+1   Ana     30.0
+2   Mia     30.0
+```
+
+```python
+>>> actually_paid_df
+    name   actually_paid
+0   Leo     50.0
+1   Ana     40.0
+2   Mia     0.0
+```
+
+```python
+>>> amount_to_transfer(should_pay_df, actually_paid_df)
+    sender  receiver    amount
+0   Mia     Leo         20.0
+1   Mia     Ana         10.0
+```

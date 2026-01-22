@@ -21,7 +21,7 @@ def amount_to_transfer(should_pay_df, actually_paid_df):
 
     Returns
     -------
-    pandas.DataFrame
+    result_df : pandas.DataFrame
         A dataframe describing the required transfers with the following columns:
 
         - 'sender' : name of the person who should send money
@@ -53,6 +53,7 @@ def amount_to_transfer(should_pay_df, actually_paid_df):
     0   Mia     Leo         20.0
     1   Mia     Ana         10.0
     """
+
     # Validate required columns in should_pay_df
     if 'name' not in should_pay_df.columns or 'should_pay' not in should_pay_df.columns:
         raise ValueError("should_pay_df must have columns 'name' and 'should_pay'")

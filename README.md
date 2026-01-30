@@ -68,9 +68,13 @@ Then there will be a window popped up in your browser showing the rendered docum
 
 ## Deploy documentation
 
-GitHub pages have been set up to automate deployment. Please go to this URL to see the rendered webpage:
+GitHub pages have been set up to automate deployment. Please go to this URL to see the rendered homepage of our project:
 
 https://ubc-mds.github.io/BillSplitterMDS/
+
+To see the documentation page of our 4 functions, please visit the following, or click the `Reference` tab at the top of the homepage:
+
+https://ubc-mds.github.io/BillSplitterMDS/reference/
 
 ## Functions
 

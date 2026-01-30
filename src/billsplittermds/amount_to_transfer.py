@@ -4,7 +4,6 @@ from decimal import Decimal
 
 import pandas as pd
 
-
 CENT = Decimal("0.01")
 
 

@@ -7,7 +7,7 @@
 [![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Python package to help groups split trip bills fairly among participants.
+**2025-26 DSCI-524 Group 14** - A Python package to help groups split trip bills fairly among participants.
 
 ## Summary
 

@@ -1,7 +1,3 @@
----
-title: "BillSplitterMDS"
----
-
 {{< include README.md >}}
 
 ## Full Usage Demonstration
